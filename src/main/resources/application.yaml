@@ -1,0 +1,14 @@
+server:
+  port: 7171
+spring:
+  application:
+    name: RegisterAndLogin
+  datasource:
+    password: password
+    url: jdbc:postgresql://localhost:1010/postgres
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: true
