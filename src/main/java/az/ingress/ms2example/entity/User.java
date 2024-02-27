@@ -22,4 +22,5 @@ public class User {
     String repeatPassword;
 
     String email;
+
 }
