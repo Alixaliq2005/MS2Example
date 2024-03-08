@@ -7,21 +7,16 @@ import lombok.experimental.FieldDefaults;
 
 @Entity
 @Data
-@Table(name = "users")
+@Table(name = "reset_Password")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class User {
-
+public class ResetPassword {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
-    String userName;
-
-    String password;
-
-    String repeatPassword;
-
     String email;
 
+    String oldPassword;
 
+    String newPassword;
 }

@@ -3,6 +3,7 @@ package az.ingress.ms2example.controller;
 import az.ingress.ms2example.dto.LoginDto;
 import az.ingress.ms2example.dto.ResetPasswordDto;
 import az.ingress.ms2example.dto.UserRegisterDto;
+import az.ingress.ms2example.entity.ResetPassword;
 import az.ingress.ms2example.entity.User;
 import az.ingress.ms2example.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -39,8 +40,8 @@ public class UserController {
     }
 
     @PostMapping("/reset")
-    public ResponseEntity<String> resetPassword(@RequestBody ResetPasswordDto resetPasswordDto) {
-        userService.resetPassword(resetPasswordDto);
+    public ResponseEntity<String> resetPassword(@RequestBody ResetPassword resetPassword) {
+        userService.resetPassword(resetPassword);
         return new ResponseEntity<> ("User reset the password", HttpStatus.CREATED);
     }
 

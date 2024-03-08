@@ -3,6 +3,7 @@ package az.ingress.ms2example.service;
 import az.ingress.ms2example.dto.LoginDto;
 import az.ingress.ms2example.dto.ResetPasswordDto;
 import az.ingress.ms2example.dto.UserRegisterDto;
+import az.ingress.ms2example.entity.ResetPassword;
 import az.ingress.ms2example.entity.User;
 import az.ingress.ms2example.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -47,12 +48,12 @@ public class UserService {
 
     }
 
-    public void resetPassword(ResetPasswordDto resetPasswordDto) {
-        User user=userRepository.findByEmail(resetPasswordDto.getEmail ());
-//        if (!user.getEmail ().equals (email)){
-//            throw new RuntimeException ("invalid email");
-//        }
-        user.setPassword(resetPasswordDto.getNewPassword ());
-        userRepository.save (user);
+    public void resetPassword(ResetPassword resetPassword) {
+        User user = userRepository.findByEmail(resetPassword.getEmail());
+        if (user == null || !user.getEmail().equals(resetPassword.getEmail())) {
+            throw new RuntimeException("invalid email");
+        }
+        user.setPassword(resetPassword.getNewPassword());
+        userRepository.save(user);
     }
 }
